@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="/android-chrome-192x192.png"/>
+            <TileColor>#2563eb</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
+```
+
+## ✅ **Compatibilidad garantizada:**
+
+| Dispositivo/Browser | Qué archivo usa | ✓ |
+|---------------------|-----------------|---|
+| **iPhone/iPad** | apple-touch-icon.png | ✅ |
+| **Safari (Mac)** | safari-pinned-tab.svg | ✅ |
+| **Android Chrome** | android-chrome-512x512.png | ✅ |
+| **Chrome/Edge** | favicon-32x32.png | ✅ |
+| **Firefox** | favicon-32x32.png | ✅ |
+| **Windows IE/Edge** | browserconfig.xml | ✅ |
+| **Opera** | favicon.ico | ✅ |
+
+## 🎨 **Tips para el logo según dispositivo:**
+
+### **Para iPhone/iPad:**
+- Fondo sólido (no transparente) recomendado
+- Evita bordes blancos que se confundan con el fondo
+
+### **Para Android:**
+- Puede tener fondo transparente
+- Se verá en el menú de aplicaciones si agregan a inicio
+
+### **Para Safari (Mac):**
+- Usa SVG monocromático (negro sobre transparente)
+- Simple y limpio
+
+## 🔄 **Limpia la caché en cada dispositivo:**
+
+**PC/Mac:**
+```
+Ctrl + Shift + R (Windows/Linux)
+Cmd + Shift + R (Mac)
