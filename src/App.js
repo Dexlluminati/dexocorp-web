@@ -19,6 +19,27 @@ function LandingPage() {
   const whatsappNumber = '59177956456';
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
+  // imagenes y slider del producto
+  const productImages = [
+    '/producto1.jpg',
+    '/producto2.jpg',
+    '/producto3.jpg'
+  ];
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
+    );
+  };
+  // acaba aqui los productos
+
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen bg-white">
@@ -173,7 +194,7 @@ function LandingPage() {
           {/* Product Section */}
           <section id="producto" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
+              <div className="text-center mb-8">
                 <p className="text-blue-600 font-semibold mb-2 text-sm uppercase tracking-wide">
                   Nuestro Producto Destacado
                 </p>
@@ -187,19 +208,53 @@ function LandingPage() {
 
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto">
                 <div className="grid md:grid-cols-2 gap-0">
-                  {/* Product Image */}
-                  <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-8 md:p-12 flex items-center justify-center">
-                    <div className="w-full h-64 md:h-96 bg-white rounded-lg shadow-lg flex items-center justify-center">
-                      <div className="text-center p-8">
-                        <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center">
-                          <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                          </svg>
-                        </div>
-                        <p className="text-gray-500 text-sm italic">Imagen del producto aquí</p>
-                      </div>
-                    </div>
+            {/* Product Image - Carousel */}
+              <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-8 md:p-12 flex items-center justify-center relative">
+                <div className="w-full h-80 md:h-[500px] bg-white rounded-lg shadow-lg flex items-center justify-center overflow-hidden relative">
+                  {/* Imagen actual */}
+                  <img 
+                    src={productImages[currentImageIndex]} 
+                    alt={`Precise-Ion QC - Imagen ${currentImageIndex + 1}`}
+                    className="w-full h-full object-contain p-4"
+                  />
+                  
+                  {/* Botón anterior */}
+                  <button
+                    onClick={previousImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition z-10"
+                    aria-label="Imagen anterior"
+                  >
+                    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Botón siguiente */}
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition z-10"
+                    aria-label="Imagen siguiente"
+                  >
+                    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Indicadores (puntitos) */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    {productImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-2 h-2 rounded-full transition ${
+                          index === currentImageIndex ? 'bg-blue-600 w-8' : 'bg-gray-400'
+                        }`}
+                        aria-label={`Ir a imagen ${index + 1}`}
+                      />
+                    ))}
                   </div>
+                </div>
+              </div>
 
                   {/* Product Info */}
                   <div className="p-8 md:p-12">
@@ -221,7 +276,7 @@ function LandingPage() {
                         <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-gray-700">Trazabilidad internacional</span>
+                        <span className="text-gray-700">Trazabilidad estandarizada</span>
                       </div>
                       <div className="flex items-start">
                         <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,7 +312,7 @@ function LandingPage() {
           {/* Team Section */}
           <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
+              <div className="text-center mb-8">
                 <p className="text-blue-600 font-semibold mb-2 text-sm uppercase tracking-wide">
                   Ingeniería con sello boliviano
                 </p>
@@ -265,15 +320,16 @@ function LandingPage() {
                   La mente detrás de la tecnología
                 </h2>
               </div>
-
               <div className="flex justify-center">
                 <div className="max-w-sm">
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
                     <div className="bg-gradient-to-br from-blue-500 to-blue-700 h-48 flex items-center justify-center">
-                      <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                        <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                        </svg>
+                      <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                         <img 
+                            src="/gato-corbata.jpg" 
+                            alt="André Arevalo" 
+                            className="w-full h-full object-contain"
+                          />
                       </div>
                     </div>
                     <div className="p-6 text-center">
@@ -306,7 +362,8 @@ function LandingPage() {
                 >
                   <Phone className="mx-auto mb-4" size={40} />
                   <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
-                  <p className="text-blue-100">Realiza tu pedido</p>
+                  <p className="text-blue-100">Consultas y Pedidos</p>
+                
                 </a>
 
                 <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 text-center">
