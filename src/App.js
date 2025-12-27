@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Menu, X, Phone, MapPin, Clock } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Clock, Factory  } from 'lucide-react';
 import PdfViewer from './PdfViewer';
 
 
@@ -21,9 +21,10 @@ function LandingPage() {
 
   // imagenes y slider del producto
   const productImages = [
-    '/producto1.jpg',
-    '/producto2.jpg',
-    '/producto3.jpg'
+    '/producto1.png',
+    '/producto2.png',
+    '/producto3.png',
+    '/producto4.jpeg'
   ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -309,7 +310,7 @@ function LandingPage() {
             </div>
           </section>
 
-          {/* Team Section */}
+          {/* Team Section
           <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-8">
@@ -343,7 +344,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* Contact Section */}
           <section id="contacto" className="py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
@@ -367,9 +368,11 @@ function LandingPage() {
                 </a>
 
                 <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 text-center">
-                  <MapPin className="mx-auto mb-4" size={40} />
+                  {/* <MapPin className="mx-auto mb-4" size={40} />
                   <h3 className="text-xl font-bold mb-2">Ubicación</h3>
-                  <p className="text-blue-100">Cochabamba, Bolivia</p>
+                  <p className="text-blue-100">Cochabamba, Bolivia</p> */}
+                  <Factory className="mx-auto mb-4" size={40} />
+                  <h3 className="text-xl font-bold mb-2">Producción Nacional Boliviana</h3>
                   <p className="text-blue-100">Envios a nivel nacional</p>
                 </div>
 
@@ -428,8 +431,10 @@ function LandingPage() {
                   <h4 className="text-lg font-bold mb-4">Información de Contacto</h4>
                   <ul className="space-y-3 text-gray-400">
                     <li className="flex items-start">
-                      <MapPin className="mr-2 flex-shrink-0 mt-1" size={18} />
-                      <span>Cochabamba, Bolivia</span>
+                      {/* <MapPin className="mr-2 flex-shrink-0 mt-1" size={18} />
+                      <span>Cochabamba, Bolivia</span> */}
+                      <Factory className="mr-2 flex-shrink-0 mt-1" size={18} />
+                      <span>Bolivia · Envios a nivel nacional</span>
                     </li>
                     <li className="flex items-start">
                       <Clock className="mr-2 flex-shrink-0 mt-1" size={18} />
