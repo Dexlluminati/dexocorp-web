@@ -65,7 +65,7 @@ export default function PdfViewer() {
               className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full"
             >
               <Home size={20} />
-              <span className="font-medium">Volver al Inicio</span>
+              <span className="font-medium">Ir a pagina web</span>
             </button>
             
             <div className="grid grid-cols-2 gap-3">
@@ -94,7 +94,7 @@ export default function PdfViewer() {
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
             >
               <Home size={20} />
-              Volver al Inicio
+              Ir a pagina web
             </button>
             
             <div className="flex gap-3">
